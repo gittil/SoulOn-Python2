@@ -1,6 +1,4 @@
 #criando a classe Veiculo
-from calendar import c
-
 
 class Veiculo():
     #metodo __init__ é o construtor, todos os atributos que forem declarados nesse metodo são obrigatórios para criar o objeto
