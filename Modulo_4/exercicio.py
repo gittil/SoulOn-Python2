@@ -47,10 +47,31 @@ def deletarTudo():
         print("Nenhum dado foi excluído!")
 
 
+def atualizarDocumento():
+    dbname = get_database()
+    collection_name = dbname['itens_soulcode']
+    temp = str(input("O que você deseja alterar?\n1-Atualizar por ID: \n2-Atualizar por campo: "))
+    if (temp=="1"):
+        id = str(input("Digite o ID as ser alterado: "))
+        chave = str(input("Digite o campo a ser aletrado: "))
+        valor = str(input("Digite o novo valor do campo digitado: "))
+
+        collection_name.update_one({"_id":id}, {"$set":{chave:valor}})
+        print("Modificação realizada!")
+    elif (temp=="2"):
+        chave = str(input("Digite a chave a ser buscada: "))
+        valor = str(input("Digite o valor a ser buscado: "))
+        chave2 = str(input("Digite a chave a ser alterada: "))
+        valor2 = str(input("Digite o novo valor: "))
+
+        collection_name.update_many({chave:valor}, {"$set":{chave2:valor2}})
+        print("Modificação realizada!")
+
 #cadastrarDocumento()
-#mostrarDocumento()
 #deletarDocumento()
-deletarTudo()
+#deletarTudo()
+atualizarDocumento()
+mostrarDocumento()
 
 
 
