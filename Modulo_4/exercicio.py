@@ -53,7 +53,7 @@ def atualizarDocumento():
     temp = str(input("O que você deseja alterar?\n1-Atualizar por ID: \n2-Atualizar por campo: "))
     if (temp=="1"):
         id = str(input("Digite o ID as ser alterado: "))
-        chave = str(input("Digite o campo a ser aletrado: "))
+        chave = str(input("Digite o campo a ser alterado: "))
         valor = str(input("Digite o novo valor do campo digitado: "))
 
         collection_name.update_one({"_id":id}, {"$set":{chave:valor}})
